@@ -49,7 +49,7 @@ Antes de começar, certifique-se de que as seguintes ferramentas estejam instala
 
 # Instalação e inicialização do [Cypress](https://cypress.io)
 
-1. Na raiz do projeto, execute o comando npm init -y para inicializar um projeto npm, isso é feito para que o projeto contenha um arquivo package.json
+1. Na raiz do projeto, execute o comando `pnpm init -y` para inicializar um projeto npm, isso é feito para que o projeto contenha um arquivo package.json
 2. Na raiz do projeto, execute o comando `pnpm add cypress --save-dev`.
 3. Execute o comando `pnpm cypress open` para abrir o Cypress pela primeira vez, o ambiente e2e de testes já está configurado.
 4. Este será o ambiente de testes Cypress, antes de iniciar os testes feche o _Cypress_App_ e faça a leitura das instruções abaixo.
