@@ -1,0 +1,119 @@
+{
+  "credenciais": {
+    "email": "cleiton@gmail.com",
+    "senha": "Teste_sig1234"
+  },
+  "caracterizacao": {
+    "informacoesIniciais": {
+      "tituloProjeto": "Projeto E2E Cypress Automação 2026",
+      "tipoEvento": "congresso",
+      "estadoExecucao": "mato-grosso-do-sul",
+      "municipioExecucao": "campo-grande",
+      "duracaoMeses": "12",
+      "instituicaoExecutora": "ufms-universidade-federal-do-mat",
+      "unidadeExecutora": "facom-faculdade-de-computacao",
+      "areaConhecimento": {
+        "grandeArea": "ciencias-exatas-e-da-terra",
+        "area": "ciencia-da-computacao",
+        "subArea": "sistemas-de-computacao",
+        "especialidade": "software-basico"
+      }
+    },
+    "informacoesComplementares": {
+      "faturamentoId": "formularioPropostaInformacaoComplementar.pergunta-218-item-startup-faturamento-ano-de-ate-r",
+      "justificativa": "Projeto Cypress E2E"
+    },
+    "abrangencia": {
+      "estado": "mato-grosso-do-sul",
+      "municipio": "campo-grande"
+    }
+  },
+  "coordenacao": {
+    "dadosPessoais": {
+      "nomeEsperado": "João Coordenador Cypress",
+      "sexoEsperado": "masculino",
+      "paisEsperado": "brasil",
+      "dataNascimentoEsperada": "15/05/1980",
+      "cpfEsperado": "12345678909",
+      "emailEsperado": "cleiton@gmail.com",
+      "celular": "67999999999",
+      "racaCor": "pardo-a"
+    },
+    "endereco": {
+      "cep": "79000000",
+      "logradouro": "Avenida Afonso Pena",
+      "numero": "1000",
+      "complemento": "Bloco B",
+      "bairro": "Centro",
+      "estado": "mato-grosso-do-sul",
+      "municipio": "campo-grande"
+    },
+    "dadosAcademicos": {
+      "instituicao": "ufms-universidade-federal-do-mat",
+      "unidade": "facom-faculdade-de-computacao",
+      "nivelAcademico": "doutorado",
+      "lattes": "http://lattes.cnpq.br/1234567890123456",
+      "linkedin": "https://linkedin.com/in/joaocypress",
+      "areaConhecimento": {
+        "grandeArea": "ciencias-exatas-e-da-terra",
+        "area": "ciencia-da-computacao",
+        "subArea": "sistemas-de-computacao",
+        "especialidade": "software-basico"
+      }
+    },
+    "dadosProfissionais": {
+      "tipoVinculo": "servidor-publico",
+      "inicioServico": "01/02/2010",
+      "regimeTrabalho": "dedicacao-exclusiva",
+      "funcao": "Professor Titular",
+      "inicioFuncao": "01/02/2015"
+    }
+  },
+  "apresentacao": {
+    "descricao": {
+      "opcaoId": "formularioPropostaDescritiva.pergunta-221-item-opcao-1",
+      "justificativa": "Texto validacao E2E"
+    },
+    "indicadoresProducao": {
+      "linhaAlvo": "Artigo completo publicado",
+      "qtdeNacional": "5",
+      "qtdeInternacional": "2"
+    },
+    "atividades": {
+      "titulo": "Workshop de Cypress Corporativo",
+      "descricao": "Atividade prática focada em testes E2E avançados e integração contínua.",
+      "mesInicio": "1",
+      "duracao": "12",
+      "cargaHoraria": "10-horas"
+    },
+    "orcamento": {
+      "faixaFinanciamento": "faixa-a-r-500-00-r-10-000-00",
+      "bolsa": {
+        "modalidade": "at",
+        "nivel": "ns-r-770-00",
+        "quantidade": "1",
+        "duracaoMeses": "12",
+        "valorTotalEsperado": "9240",
+        "contrapartida": {
+          "tipoPessoa": "pessoa-juridica",
+          "entidade": "FAPEPI"
+        }
+      }
+    }
+  },
+  "anexos": {
+    "documentosPessoais": {
+      "categoria": "documento-de-identificacao-com-f",
+      "caminhoArquivo": "cartaapresentacao.pdf",
+      "nomeArquivo": "cartaapresentacao.pdf"
+    },
+    "documentosProposta": {
+      "categoria": "carta-de-apresentacao",
+      "caminhoArquivo": "cartaapresentacao.pdf",
+      "nomeArquivo": "cartaapresentacao.pdf"
+    }
+  },
+  "finalizacao": {
+    "mensagemSucessoEsperada": "sucesso"
+  }
+}
