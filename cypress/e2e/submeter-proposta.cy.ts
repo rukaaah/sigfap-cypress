@@ -100,45 +100,146 @@ describe('Atividade 2 - Submeter Proposta (Edital 2026-0001)', () => {
   });
 
   // ============================================================================
-  // TESTE 1: CARACTERIZAÇÃO
-  // ============================================================================
-  it("1. Deve preencher a seção 'Caracterização'", function () {
-    const dados = this.dados;
+// TESTE 1: CARACTERIZAÇÃO
+// ============================================================================
+it("1. Deve preencher a seção 'Caracterização'", function () {
+  const dados = this.dados;
 
-    cy.get('[data-cy="informacoes-iniciais"]').click({ force: true });
-    cy.get('[data-cy="titulo"]').clear({ force: true }).type(dados.caracterizacao.informacoesIniciais.tituloProjeto, { force: true });
-    cy.get('[data-cy="duracao"]').clear({ force: true }).type(dados.caracterizacao.informacoesIniciais.duracaoMeses, { force: true });
-    
-    selecionarOpcao('instituicao-executora-id', dados.caracterizacao.informacoesIniciais.instituicaoExecutora);
-    selecionarOpcao('unidade-executora-id', dados.caracterizacao.informacoesIniciais.unidadeExecutora);
+  cy.get('[data-cy="informacoes-iniciais"]').click({ force: true });
 
-    executarSeExistir('[data-cy="add-areas-de-conhecimento"]', () => {
-      cy.get('[data-cy="add-areas-de-conhecimento"]').click({ force: true });
-      selecionarOpcao('grande-area-id', dados.caracterizacao.informacoesIniciais.areaConhecimento.grandeArea);
-      selecionarOpcao('area-id', dados.caracterizacao.informacoesIniciais.areaConhecimento.area);
-      selecionarOpcao('sub-area-id', dados.caracterizacao.informacoesIniciais.areaConhecimento.subArea);
-      selecionarOpcao('especialidade-id', dados.caracterizacao.informacoesIniciais.areaConhecimento.especialidade);
-      cy.get('[data-cy="areaDeConhecimento-confirmar"]').click({ force: true });
+  cy.get('[data-cy="titulo"]')
+    .clear({ force: true })
+    .type(
+      dados.caracterizacao.informacoesIniciais.tituloProjeto,
+      { force: true }
+    );
+
+  selecionarOpcao(
+    'estado-execucao-evento',
+    dados.caracterizacao.informacoesIniciais.estadoExecucao
+  );
+
+  selecionarOpcao(
+    'tipo-evento-id',
+    dados.caracterizacao.informacoesIniciais.tipoEvento
+  );
+
+  selecionarOpcao(
+    'municipio-execucao-evento',
+    dados.caracterizacao.informacoesIniciais.municipioExecucao
+  );
+
+  cy.get('[data-cy="duracao"]')
+    .clear({ force: true })
+    .type(
+      dados.caracterizacao.informacoesIniciais.duracaoMeses,
+      { force: true }
+    );
+
+  selecionarOpcao(
+    'instituicao-executora-id',
+    dados.caracterizacao.informacoesIniciais.instituicaoExecutora
+  );
+
+  selecionarOpcao(
+    'unidade-executora-id',
+    dados.caracterizacao.informacoesIniciais.unidadeExecutora
+  );
+
+  executarSeExistir('[data-cy="add-areas-de-conhecimento"]', () => {
+    cy.get('[data-cy="add-areas-de-conhecimento"]').click({
+      force: true,
     });
 
-    cy.get('[data-cy="informacoes-complementares"]').click({ force: true });
-    cy.get(`[data-cy="${dados.caracterizacao.informacoesComplementares.faturamentoId}"]`).click({ force: true });
-    cy.get('[data-cy="formularioPropostaInformacaoComplementar.pergunta-219"]').clear({ force: true }).type(dados.caracterizacao.informacoesComplementares.justificativa, { force: true });
+    selecionarOpcao(
+      'grande-area-id',
+      dados.caracterizacao.informacoesIniciais.areaConhecimento.grandeArea
+    );
 
-    cy.get('[data-cy="abrangencia"]').click({ force: true });
-    
-    executarSeExistir('[data-cy="add-button"]', () => {
-      cy.get('[data-cy="add-button"]').click({ force: true });
-      selecionarOpcao('estado-id', dados.caracterizacao.abrangencia.estado, 'Mato Grosso do Sul');
-      cy.wait(1000); 
-      selecionarOpcao('abrangencia-municipio', dados.caracterizacao.abrangencia.municipio, 'Campo Grande');
-      cy.get('[data-cy="abrangencia-confirmar"]').click({ force: true });
+    selecionarOpcao(
+      'area-id',
+      dados.caracterizacao.informacoesIniciais.areaConhecimento.area
+    );
+
+    selecionarOpcao(
+      'sub-area-id',
+      dados.caracterizacao.informacoesIniciais.areaConhecimento.subArea
+    );
+
+    selecionarOpcao(
+      'especialidade-id',
+      dados.caracterizacao.informacoesIniciais.areaConhecimento.especialidade
+    );
+
+    cy.get('[data-cy="areaDeConhecimento-confirmar"]').click({
+      force: true,
     });
-
-    cy.get('[data-cy="menu-salvar"]').click({ force: true });
-    cy.wait(3000); 
   });
 
+  // --------------------------------------------------------------------------
+  // Informações Complementares
+  // --------------------------------------------------------------------------
+
+  cy.get('[data-cy="informacoes-complementares"]').click({
+    force: true,
+  });
+
+  cy.get(
+    `[data-cy="${dados.caracterizacao.informacoesComplementares.faturamentoId}"]`
+  ).click({ force: true });
+
+  cy.get(
+    '[data-cy="formularioPropostaInformacaoComplementar.pergunta-219"]'
+  )
+    .clear({ force: true })
+    .type(
+      dados.caracterizacao.informacoesComplementares.justificativa,
+      { force: true }
+    );
+
+  // --------------------------------------------------------------------------
+  // Abrangência
+  // --------------------------------------------------------------------------
+
+  cy.get('[data-cy="abrangencia"]').click({ force: true });
+
+  executarSeExistir('[data-cy="add-button"]', () => {
+    cy.get('[data-cy="add-button"]').click({ force: true });
+
+    selecionarOpcao(
+      'estado-id',
+      dados.caracterizacao.abrangencia.estado,
+      'Mato Grosso do Sul'
+    );
+
+    cy.wait(1000);
+
+    selecionarOpcao(
+      'abrangencia-municipio',
+      dados.caracterizacao.abrangencia.municipio,
+      'Campo Grande'
+    );
+
+    cy.get('[data-cy="abrangencia-confirmar"]').click({
+      force: true,
+    });
+  });
+
+  // --------------------------------------------------------------------------
+  // Salvar
+  // --------------------------------------------------------------------------
+
+  cy.get('[data-cy="menu-salvar"]')
+    .should('be.visible')
+    .click({ force: true });
+
+  cy.wait('@putProposta', {
+    timeout: 15000,
+  });
+
+  cy.get('[data-cy="coordenacao"]')
+    .should('be.visible');
+});
   // ============================================================================
   // TESTE 2: COORDENAÇÃO
   // ============================================================================
@@ -303,12 +404,10 @@ describe('Atividade 2 - Submeter Proposta (Edital 2026-0001)', () => {
     cy.get('[data-cy="finalizacao"]').click({ force: true });
 
     cy.get('[data-cy="termo-de-aceite"]').click({ force: true });
-    
-    // Como é o último passo e a assinatura final, mantemos o click direto que você já usou com sucesso antes
     cy.get('[data-cy="termo-de-aceite-aceito-box"]').click({ force: true }); 
 
     cy.get('[data-cy="menu-salvar"]').click({ force: true });
-    cy.wait(3000);
+    cy.wait(2000);
 
     cy.get('[data-cy="menu-verificar-pendencias"]').click({ force: true });
     cy.wait('@getPendencias');
