@@ -18,11 +18,9 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      # Atualizado para v4 e pnpm 9 para total compatibilidade com Node 24
+      # Usa a versão do pnpm definida em package.json (campo packageManager)
       - name: Instalar pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 9 
 
       # Atualizado para a versão 24 para corrigir o erro de depreciação do GitHub
       - name: Configurar Node.js
