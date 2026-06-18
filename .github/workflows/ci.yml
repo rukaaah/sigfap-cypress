@@ -18,13 +18,9 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      # Atualizado para v4 e pnpm 9 para total compatibilidade com Node 24
       - name: Instalar pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 9 
 
-      # Atualizado para a versão 24 para corrigir o erro de depreciação do GitHub
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
@@ -38,4 +34,3 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           install: false
-          browser: chrome
