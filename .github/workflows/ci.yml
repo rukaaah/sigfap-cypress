@@ -1,0 +1,50 @@
+name: Cypress CI
+
+# O workflow será executado sempre que houver um push ou pull request nas branches main ou master
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Baixa o código do seu repositório para a máquina virtual
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      # 2. Instala o pnpm, que é o gerenciador de pacotes utilizado no projeto
+      - name: Instalar pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8 # Versão do pnpm (ajuste caso esteja usando a v9)
+
+      # 3. Configura o Node.js e o cache das dependências do pnpm
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Versão recomendada (LTS)
+          cache: 'pnpm'
+
+      # 4. Instala as dependências do projeto, incluindo o Cypress
+      - name: Instalar dependências
+        run: pnpm install
+
+      # 5. Executa os testes do Cypress utilizando a Action oficial da própria Cypress
+      - name: Executar testes E2E
+        uses: cypress-io/github-action@v6
+        with:
+          # Desabilita a instalação embutida da Action, pois já instalamos com o pnpm acima
+          install: false
+          
+          # Caso seu sistema precise rodar um servidor de desenvolvimento antes dos testes, 
+          # descomente as linhas abaixo e ajuste o comando start:
+          # start: pnpm run start
+          # wait-on: 'http://localhost:3000'
