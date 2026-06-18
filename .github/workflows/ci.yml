@@ -1,5 +1,4 @@
 name: Cypress CI
-
 on:
   push:
     branches:
@@ -9,24 +8,20 @@ on:
     branches:
       - main
       - master
-
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      # Usa a versão do pnpm definida em package.json (campo packageManager)
       - name: Instalar pnpm
         uses: pnpm/action-setup@v4
 
-      # Atualizado para a versão 24 para corrigir o erro de depreciação do GitHub
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24' 
+          node-version: '24'
           cache: 'pnpm'
 
       - name: Instalar dependências
@@ -36,4 +31,3 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           install: false
-          browser: chrome
